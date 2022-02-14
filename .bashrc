@@ -113,7 +113,7 @@ luo_salasana() {
 }
 
 pura() {
-    gpg -d .$1.gpg |xclip -selection clipboard
+    gpg -d ~/gpgtiedostot/$1.gpg |xclip -selection clipboard
 }
 
 nautto() {
