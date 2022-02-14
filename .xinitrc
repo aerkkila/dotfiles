@@ -1,6 +1,7 @@
-tmp=`xrandr |grep -o '.* connected' |grep -o '^[^e ]*'`
-if [ ${#tmp} != 0 ]; then
-    xrandr --output eDP-1 --off --output ${tmp} --auto
+DP=`xrandr |grep -o '.* connected' |grep -o '^[^e ]*'`
+eDP=`xrandr |grep -o '.* connected' |grep -o '^e\w*'`
+if [ ${#DP} != 0 ]; then
+    xrandr --output ${eDP} --off --output ${DP} --auto
 fi
 
 #lisätään kaikki fonttipolut
