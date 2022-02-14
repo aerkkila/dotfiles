@@ -21,6 +21,7 @@
 
 (global-visual-line-mode 1)
 (global-linum-mode 1)
+(setq linum-format /"%d ")
 (electric-indent-mode 1)
 ;(xclip-mode 1) ;asenna xclip
 (tool-bar-mode 0)
