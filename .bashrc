@@ -97,8 +97,8 @@ alias catbash='cat ~/bash'
 alias gdb='gdb -q'
 
 kiinnita() {
-    sudo mkdir -p /media/$1
-    sudo mount -o uid=$USER,gid=$USER /dev/$1 /media/$1
+    sudo mkdir -p /media/${USER}/$1
+    sudo mount -o uid=$USER,gid=$(groups |grep -o '^\w*') /dev/$1 /media/${USER}/$1
 }
 
 yksi_tiedosto() {
