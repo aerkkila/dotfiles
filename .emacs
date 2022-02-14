@@ -15,10 +15,14 @@
  ;; If there is more than one, they won't work right.
  )
 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
 (global-visual-line-mode 1)
 (global-linum-mode 1)
 (electric-indent-mode 1)
-(xclip-mode 1) ;asenna xclip
+;(xclip-mode 1) ;asenna xclip
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
@@ -27,14 +31,11 @@
 (defun company-c-headers-setup ()
   (add-to-list 'company-backends 'company-c-headers))
 (delete 'company-clang company-backends)
-(semantic-mode 1)
+;(semantic-mode 1)
 
 (ggtags-mode 1) ; asenna ggtags
 (global-set-key (kbd "C-M-o") 'ggtags-find-tag-dwim)
 
-;(require 'package)
-;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-;(package-initialize)
 ;(require 'auto-complete) ;asenna auto-complete, onnistuu package-archives-jutusta
 ;(require 'auto-complete-config)
 ;(ac-config-default)
