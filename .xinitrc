@@ -1,5 +1,5 @@
 DP=`xrandr |grep -o '.* connected' |grep -o '^[^e ]*'`
-eDP=`xrandr |grep -o '.* connected' |grep -o '^e\w*'`
+eDP=`xrandr |grep -o '.* connected' |grep -o '^e\S*'`
 if [ ${#DP} != 0 ]; then
     xrandr --output ${eDP} --off --output ${DP} --auto
 fi
