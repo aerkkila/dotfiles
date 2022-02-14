@@ -94,12 +94,11 @@ alias l='ls -CF'
 alias lsh='ls --hide=*~'
 
 alias catbash='cat ~/bash'
-alias emacsbash='emacs /home/antterkk/bash &'
 alias gdb='gdb -q'
 
 kiinnita() {
     sudo mkdir -p /media/$1
-    sudo mount -o uid=aerk,gid=aerk /dev/$1 /media/$1
+    sudo mount -o uid=$USER,gid=$USER /dev/$1 /media/$1
 }
 
 yksi_tiedosto() {
