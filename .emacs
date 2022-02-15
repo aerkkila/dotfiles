@@ -21,7 +21,6 @@
 
 (global-visual-line-mode 1)
 (global-linum-mode 1)
-(setq linum-format "%d\u2502 ")
 (electric-indent-mode 1)
 ;(xclip-mode 1) ;asenna xclip
 (tool-bar-mode 0)
@@ -69,7 +68,8 @@
 	      (left . 1000)
 	      (top . 0 )))
       (set-background-color "#000000"))
-  (set-face-background 'default "undefined"))
+  (set-face-background 'default "undefined")
+  (setq linum-format "%d\u2502 "))
 (add-to-list 'default-frame-alist '(foreground-color . "#FFFFFF"))
 
 (add-to-list 'default-frame-alist '(height . 73))
