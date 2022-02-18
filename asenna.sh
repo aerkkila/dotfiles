@@ -1,1 +1,1 @@
-ln -f .emacs .xinitrc .bashrc ~/
+ln -f .emacs .xinitrc .bashrc .näyttökaappaus.sh ~/
