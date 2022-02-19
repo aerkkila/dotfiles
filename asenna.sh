@@ -1,2 +1,2 @@
 ln -f .emacs .xinitrc .bashrc ~/
-cp näyttökaappaus.sh /usr/local/bin/näyttökaappaus
+cp kuvakaappaus.sh /usr/local/bin/kuvakaappaus
