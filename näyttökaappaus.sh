@@ -8,4 +8,8 @@ kokokuva() {
     ffmpeg -loglevel warning -f x11grab -i $DISPLAY -frames: 1 $HOME/näyttökaappaus_"$( date +"%s" )".png
 }
 
-eval $@
+if [ "$#" -lt 1 ]; then
+    kokokuva
+else
+    osakuva $@
+fi
