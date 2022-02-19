@@ -95,6 +95,7 @@ alias lsh='ls --hide=*~'
 
 alias catbash='cat ~/bash'
 alias gdb='gdb -q'
+alias sudo='sudo -E'
 
 kiinnita() {
     sudo mkdir -p /media/${USER}/$1
