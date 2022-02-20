@@ -53,10 +53,8 @@
 (global-set-key (kbd "M-o") 'forward-char)
 (global-set-key (kbd "M-a") 'next-line)
 (global-set-key (kbd "M-i") 'previous-line)
-(global-set-key (kbd "C-a") 'scroll-up-line)
-(global-set-key (kbd "C-i") 'scroll-down-line)
-(global-set-key (kbd "C-x a") 'beginning-of-line)
-(global-set-key (kbd "C-x e") 'end-of-line)
+(global-set-key (kbd "C-x a") 'scroll-up-line)
+(global-set-key (kbd "C-x i") 'scroll-down-line)
 
 (global-set-key (kbd "M-e") 'dabbrev-completion)
 
