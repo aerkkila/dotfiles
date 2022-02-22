@@ -1,8 +1,6 @@
 DP=`xrandr |grep -o '.* connected' |grep -o '^[^e ]*'`
 eDP=`xrandr |grep -o '.* connected' |grep -o '^e\S*'`
-if [ ${#DP} != 0 ]; then
-    xrandr --output ${eDP} --off --output ${DP} --auto --primary
-fi
+[ $DP ] && xrandr --output ${eDP} --off --output ${DP} --auto --primary
 
 #lisätään kaikki fonttipolut
 kansiot=`ls -1 /usr/share/fonts`
@@ -13,7 +11,6 @@ done
 xset r rate 340 40;
 exec blueman-applet &
 exec xcompmgr & #ikkunoitten läpinäkyvyys
-#exec picom -CG --no-fading-openclose --paint-on-overlay &
 exec hsetroot -solid '#000000' & #tausta mustaksi, xcompmgr muuttaa sen harmaaksi
 ./.tilapalkki1.sh &
 numlockx &
