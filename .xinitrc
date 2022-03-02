@@ -11,7 +11,8 @@ done
 xset r rate 340 40;
 exec blueman-applet &
 exec xcompmgr & #ikkunoitten läpinäkyvyys
-exec hsetroot -solid '#000000' & #tausta mustaksi, xcompmgr muuttaa sen harmaaksi
+[ $TAUSTA ] || export TAUSTA='#000000' #oletustausta mustaksi, xcompmgr muuttaa sen harmaaksi
+exec hsetroot -solid $TAUSTA &
 ./.tilapalkki1.sh &
 numlockx &
 exec dwm 2> ~/.dwm.log
