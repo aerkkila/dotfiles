@@ -107,8 +107,8 @@ yksi_tiedosto() {
 }
 
 luo_salasana() {
-    pwgen 16 -sy > .$1
-    gpg -o .$1.gpg --symmetric --cipher-algo AES256 .$1
+    pwgen 16 -sy > $1
+    gpg -o $1.gpg --symmetric --cipher-algo AES256 $1
     shred -vzu .$1
 }
 
