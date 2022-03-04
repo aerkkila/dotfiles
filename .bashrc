@@ -116,21 +116,8 @@ pura() {
     gpg -d ~/gpgtiedostot/$1.gpg |xclip -selection clipboard
 }
 
-nautto() {
-    tmp=`xrandr |grep "^DP-. connected"`
-    if [ ${#tmp} != 0 ]; then
-	xrandr --output eDP-1 --off --output DP-${tmp:3:1} --auto
-	return
-    fi
-    tmp=`xrandr |grep 'HDMI-. connected'`
-    if [ ${#tmp} != 0 ]; then
-	xrandr --output eDP-1 --off --output HDMI-${tmp:5:1} --auto
-    fi
-}
-
 näppäimistö() {
    emacs /usr/share/X11/xkb/symbols/$1 &
-   emacs /usr/include/X11/keysymdef.h &
    echo setxkbmap
 }
 
@@ -142,116 +129,6 @@ alavasen() {
     ikkuna=`xdotool getactivewindow`
     xdotool windowsize $ikkuna 984 709
     xdotool windowmove $ikkuna 0 709
-}
-
-tvsk() {
-    cd ~/tvsk
-    emacs tvsk_huomioita.txt tvsk_uv.txt &
-    sleep 1
-    emacs=`xdotool getactivewindow`
-    xdotool windowsize $emacs 550 1390
-    xdotool windowmove $emacs 11 52
-    kuva=`ls -1 käytetyt/*.jpg | head -$1 |tail -1`
-    gnome-open $kuva &
-    sleep 1
-    kuva=`xdotool getactivewindow`
-    xdotool windowsize $kuva 1064 1466
-    xdotool windowmove $kuva 1523 -25
-    gnome-open tvsk.odt &
-    sleep 3
-    ikkuna=`xdotool getactivewindow`
-    xdotool windowsize $ikkuna 997 1391
-    xdotool windowmove $ikkuna 561 52
-    xdotool mousemove --window $ikkuna 300 300
-    xdotool click 1
-    xdotool key Ctrl+End
-    xdotool click 7
-}
-
-essee() {
-    cd ~/kurssit/rannikkoos/
-    xdotool windowmove `xdotool getactivewindow`  1154 1040
-    xdotool windowminimize `xdotool getactivewindow`
-    emacs essee &
-    sleep 1
-    ikkuna=`xdotool getactivewindow`
-    xdotool windowsize $ikkuna 1250 1390
-    xdotool windowmove $ikkuna $((2559-750)) 52
-    xdotool key Ctrl+x
-    xdotool key 3
-    xdotool key Ctrl+x
-    xdotool key Ctrl+f
-    xdotool type essee1
-    sleep 0.2
-    xdotool key Return
-    firefox &
-    while [ -z `xdotool search --name "DuckDuckGo"` ]
-    do
-        :
-    done
-    sleep 3
-    xdotool key F6
-    sleep 0.5
-    xdotool type scholar.google.com
-    sleep 0.5
-    xdotool key Return
-    ikkuna=`xdotool getactivewindow`
-    xdotool windowsize $ikkuna 1200 1390
-    xdotool windowmove $ikkuna 0 0
-}
-
-kandi() {
-    cd ~/kurssit/kandityö
-    xdotool windowmove `xdotool getactivewindow` 800 1040
-    emacs tuloksista tekstiä.txt &
-    sleep 1
-    while [ -z `xdotool search --name "emacs@fuxi16"`]
-    do
-	:
-    done
-    sleep 0.5
-    ikkuna=`xdotool getactivewindow`
-    xdotool windowsize $ikkuna 1000 1390
-    xdotool windowmove $ikkuna $((2559-750)) 52
-    ncview icemod.nc &
-    sleep 0.4
-    ikkuna=`xdotool getactivewindow`
-    xdotool windowmove $ikkuna 0 600
-}
-
-koord() {
-    cd ~/kurssit/kandityö
-    xdotool windowminimize `xdotool getactivewindow`
-    ncview icemod.nc &
-    sleep 0.3
-    xdotool windowmove `xdotool getactivewindow` 0 600
-    ncview icemod.nc &
-    sleep 0.3
-    xdotool windowmove `xdotool getactivewindow` 0 0
-    xdotool mousemove 135 312
-    sleep 0.1
-    xdotool mousedown 1
-    sleep 0.5
-    xdotool mousemove 135 333
-    xdotool mouseup 1
-    sleep 0.5
-    xdotool windowmove `xdotool getactivewindow` 600 60
-    xdotool mousemove 218 231
-    sleep 0.5
-    xdotool click 1
-    xdotool click 1
-    xdotool mousemove 141 913
-    sleep 0.1
-    xdotool mousedown 1
-    sleep 0.5
-    xdotool mousemove 141 958
-    xdotool mouseup 1
-    sleep 1.3
-    xdotool windowmove `xdotool getactivewindow` 600 720
-    xdotool mousemove 219 832
-    sleep 0.1
-    xdotool click 1
-    xdotool click 1
 }
 
 # Add an "alert" alias for long running commands.  Use like so:
