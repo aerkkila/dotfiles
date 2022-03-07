@@ -73,9 +73,11 @@
   (set-face-background 'default "undefined")
   (setq linum-format "%d\u2502 "))
 (add-to-list 'default-frame-alist '(foreground-color . "#FFFFFF"))
-
 (add-to-list 'default-frame-alist '(height . 73))
 (add-to-list 'default-frame-alist '(width . 100))
+
+(add-hook 'after-save-hook
+  'executable-make-buffer-file-executable-if-script-p)
 
  ;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
 (setq-default message-log-max nil)
