@@ -69,9 +69,9 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-alias catbash='cat ~/bash'
 alias gdb='gdb -q'
 alias sudo='sudo -E'
+alias rm='rm -I'
 
 kiinnita() {
     sudo mkdir -p /media/${USER}/$1
