@@ -5,11 +5,7 @@ osakuva() {
 }
 
 kokokuva() {
-    ffmpeg -loglevel warning -f x11grab -i $DISPLAY -frames: 1 $HOME/kuvakaappaus_"$( date +"%s" )".png
+    ffmpeg -loglevel warning -f x11grab -show_region 1 -draw_mouse 0 -i desktop -frames: 1 $HOME/kuvakaappaus_"$( date +"%s" )".png
 }
 
-if [ "$#" -lt 1 ]; then
-    kokokuva
-else
-    osakuva $@
-fi
+[ "$#" -lt 1 ] && kokokuva || osakuva $@
