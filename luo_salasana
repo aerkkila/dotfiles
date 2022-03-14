@@ -1,0 +1,2 @@
+#!/bin/sh
+[ $1 ] && pwgen 16 -sy | gpg -o ~/gpgtiedostot/$1.gpg --symmetric --cipher-alge AES256

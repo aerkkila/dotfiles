@@ -9,13 +9,8 @@ shopt -s histappend # append to the history file, don't overwrite it
 HISTSIZE=2000
 HISTFILESIZE=30000
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
+shopt -s checkwinsize # päivitä LINES ja COLUMNS -arvot aina komennon jälkeen
+shopt -s globstar # "**" täsmää kaikkiin tiedostoihin ja hakemistoihin alihakemistoineen
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -44,23 +39,6 @@ kiinnita() {
 
 yksi_tiedosto() {
     ls -1 $@ |head -1
-}
-
-luo_salasana() {
-    pwgen 16 -sy | gpg -o ~/gpgtiedostot/$1.gpg --symmetric --cipher-alge AES256
-}
-
-pura() {
-    gpg -d ~/gpgtiedostot/$1.gpg |xclip -selection clipboard
-}
-
-näppäimistö() {
-   emacs /usr/share/X11/xkb/symbols/$1 &
-   echo setxkbmap
-}
-
-monoääni() {
-    pacmd load-module module-remap-sink sink_name=mono master=$(pacmd list-sinks | grep -m 1 -oP 'name:\s<\K.*(?=>)') channels=2 channel_map=mono,mono
 }
 
 # enable programmable completion features (you don't need to enable
