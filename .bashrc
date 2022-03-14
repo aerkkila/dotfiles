@@ -47,9 +47,7 @@ yksi_tiedosto() {
 }
 
 luo_salasana() {
-    pwgen 16 -sy > ~/gpgtiedostot/$1
-    gpg -o ~/gpgtiedostot/$1.gpg --symmetric --cipher-algo AES256 ~/gpgtiedostot/$1
-    shred -vzu $1
+    pwgen 16 -sy | gpg -o ~/gpgtiedostot/$1.gpg --symmetric --cipher-alge AES256
 }
 
 pura() {
