@@ -8,7 +8,7 @@ for i in $kansiot; do
     xset +fp /usr/share/fonts/$i
 done
 
-xset r rate 340 40;
+xset r rate 250 40;
 exec blueman-applet &
 exec xcompmgr & #ikkunoitten läpinäkyvyys
 [ $TAUSTA ] || export TAUSTA='-solid #000000' #oletustausta mustaksi, xcompmgr muuttaa sen harmaaksi
