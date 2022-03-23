@@ -25,6 +25,7 @@
 ;(xclip-mode 1) ;asenna xclip
 (tool-bar-mode 0)
 (menu-bar-mode 0)
+(show-paren-mode 1)
 
 (global-company-mode 1) ;asenna company
 (setq company-idle-delay 0.1)
