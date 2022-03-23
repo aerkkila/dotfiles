@@ -31,6 +31,7 @@ fi
 alias gdb='gdb -q'
 alias sudo='sudo -E'
 alias rm='rm -I'
+alias emasc='echo "Korjataan emasc -> emacs" ; emacs'
 
 kiinnita() {
     sudo mkdir -p /media/${USER}/$1
