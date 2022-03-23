@@ -26,6 +26,7 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (show-paren-mode 1)
+(setq show-paren-delay 0.1)
 
 (global-company-mode 1) ;asenna company
 (setq company-idle-delay 0.1)
