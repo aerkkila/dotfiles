@@ -7,7 +7,7 @@
    [default default default italic underline success warning error])
  '(custom-enabled-themes '(tango-dark))
  '(inhibit-startup-screen t)
- '(package-selected-packages '(ggtags yasnippet auto-complete xclip)))
+ '(package-selected-packages '(ggtags auto-complete xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -17,6 +17,7 @@
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (package-initialize)
 
 (global-visual-line-mode 1)
@@ -28,6 +29,8 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0.1)
 
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (global-company-mode 1) ;asenna company
 (setq company-idle-delay 0.1)
 (defun company-c-headers-setup ()
@@ -42,8 +45,6 @@
 ;(require 'auto-complete-config)
 ;(ac-config-default)
 ;(global-auto-complete-mode 1)
-;(require 'yasnippet) ;asenna yasnippet
-;(yas-global-mode 1)
 ;(semantic-mode 1)
 ;(defun my:add-semantic-to-autocomplete()
 ;  (add-to-list 'ac-sources 'ac-source-semantic)
