@@ -26,6 +26,7 @@
 ;(xclip-mode 1) ;asenna xclip
 (tool-bar-mode 0)
 (menu-bar-mode 0)
+(scroll-bar-mode 0)
 (show-paren-mode 1)
 (setq show-paren-delay 0.1)
 
@@ -38,6 +39,7 @@
 (delete 'company-clang company-backends)
 ;(semantic-mode 1)
 
+(require 'iedit) ;asenna iedit
 (ggtags-mode 1) ; asenna ggtags
 (global-set-key (kbd "C-M-o") 'ggtags-find-tag-dwim)
 
