@@ -23,7 +23,6 @@
 (global-visual-line-mode 1)
 (global-linum-mode 1)
 (electric-indent-mode 1)
-;(xclip-mode 1) ;asenna xclip
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
@@ -37,7 +36,6 @@
 (defun company-c-headers-setup ()
   (add-to-list 'company-backends 'company-c-headers))
 (delete 'company-clang company-backends)
-;(semantic-mode 1)
 
 (require 'iedit) ;asenna iedit
 (ggtags-mode 1) ; asenna ggtags
@@ -47,7 +45,7 @@
 ;(require 'auto-complete-config)
 ;(ac-config-default)
 ;(global-auto-complete-mode 1)
-;(semantic-mode 1)
+;(semantic-mode 1) ; tällä saisi täydennyksen toimimaan myös #include-tiedostoista, mutta aiheuttaa viivettä
 ;(defun my:add-semantic-to-autocomplete()
 ;  (add-to-list 'ac-sources 'ac-source-semantic)
 ;  )
@@ -84,17 +82,15 @@
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
 
- ;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+(setq initial-scratch-message nil)
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
-(setq initial-scratch-message nil)
-
 (setq
-   backup-by-copying t      ; don't clobber symlinks, ei riko kovia linkkejä
+   backup-by-copying t      ; ei riko kovia linkkejä eikä symbolisia
    backup-directory-alist
-    '(("." . "~/emacstallenteet/"))    ; don't litter my fs tree
+    '(("." . "~/emacstallenteet/"))
    delete-old-versions t
    kept-new-versions 5
    kept-old-versions 2
-   version-control t)       ; use versioned backups
+   version-control t)
