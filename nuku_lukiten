@@ -6,4 +6,4 @@ eDP=`xrandr |grep -o '.* connected' |grep -o '^e\S*'`
 hsetroot $TAUSTA
 
 echo deep |sudo tee /sys/power/mem_sleep
-echo mem |sudo tee /sys/power/state
+slock echo mem |sudo tee /sys/power/state

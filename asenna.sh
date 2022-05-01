@@ -16,6 +16,7 @@ cp -f \
    luo_salasana \
    monoääni \
    nuku \
+   nuku_lukiten \
    näyttö_lisää \
    näyttö_vaihda \
    pura \
