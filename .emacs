@@ -82,9 +82,6 @@
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
 
-(setq initial-scratch-message nil)
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
 
 (setq
    backup-by-copying t      ; ei riko kovia linkkejä eikä symbolisia
@@ -94,3 +91,10 @@
    kept-new-versions 5
    kept-old-versions 2
    version-control t)
+
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer :ignore-auto :noconfirm))
+
+(global-set-key (kbd "C-M-r") 'revert-buffer-no-confirm)
