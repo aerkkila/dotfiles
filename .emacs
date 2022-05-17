@@ -108,3 +108,4 @@
     (revert-buffer :ignore-auto :noconfirm))
 
 (global-set-key (kbd "C-M-r") 'revert-buffer-no-confirm)
+(add-hook 'csv-mode-hook 'csv-align-mode)
