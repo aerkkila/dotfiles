@@ -59,6 +59,16 @@
 (global-set-key (kbd "C-x a") 'scroll-up-line)
 (global-set-key (kbd "C-x i") 'scroll-down-line)
 
+;;vim-tyyliset liikunnat venäläiselle oletusnäppäimistönasettelulle
+;;Alt-näppäin luetaan venäläisestä, mutta kontrol järjestelmän oletusasettelusta
+(global-set-key (kbd "M-р") 'backward-char)
+(global-set-key (kbd "M-д") 'forward-char)
+(global-set-key (kbd "M-о") 'next-line)
+(global-set-key (kbd "M-л") 'previous-line)
+(global-set-key (kbd "C-x о") 'scroll-up-line)
+(global-set-key (kbd "C-x л") 'scroll-down-line)
+(global-set-key (kbd "C-x ъ") 'repeat)
+
 (global-set-key (kbd "M-e") 'dabbrev-completion)
 
 (set-frame-font "Liberation Mono 12" nil t)
