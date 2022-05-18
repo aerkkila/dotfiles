@@ -92,6 +92,9 @@
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
 
+(setq initial-scratch-message nil)
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
 
 (setq
    backup-by-copying t      ; ei riko kovia linkkejä eikä symbolisia
