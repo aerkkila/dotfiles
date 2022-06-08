@@ -10,8 +10,8 @@ mkdir -p ~/.emacs.d/lisp/
 emacs -Q -batch -f batch-byte-compile rainbow-delimiters.el
 ln -f rainbow-delimiters.elc ~/.emacs.d/lisp/
 
-[ -f taustavaloksi ] && [ `stat taustavaloksi.c -c "%Z"` -lt `stat taustavaloksi -c "%Z"` ] \
-	|| gcc -O2 taustavaloksi.c -o taustavaloksi
+[ -f taustavalo ] && [ `stat taustavalo.c -c "%Z"` -lt `stat taustavalo -c "%Z"` ] \
+	|| gcc -O2 taustavalo.c -o taustavalo
 
 cp -f \
    _hae_näytöt.sh \
@@ -23,7 +23,7 @@ cp -f \
    näyttö_lisää \
    näyttö_vaihda \
    pura \
-   taustavaloksi \
+   taustavalo \
    /usr/local/bin/
 
-chmod u+s /usr/local/bin/taustavaloksi
+chmod u+s /usr/local/bin/taustavalo
