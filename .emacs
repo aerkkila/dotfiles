@@ -85,9 +85,9 @@
       (set-background-color "#000000"))
   (set-face-background 'default "undefined")
   (setq linum-format "%d\u2502 "))
-(add-to-list 'default-frame-alist '(foreground-color . "#FFFFFF"))
-(add-to-list 'default-frame-alist '(height . 73))
-(add-to-list 'default-frame-alist '(width . 100))
+;(add-to-list 'default-frame-alist '(foreground-color . "#FFFFFF"))
+;(add-to-list 'default-frame-alist '(height . 73))
+;(add-to-list 'default-frame-alist '(width . 100))
 
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
@@ -112,3 +112,5 @@
 
 (global-set-key (kbd "C-M-r") 'revert-buffer-no-confirm)
 (add-hook 'csv-mode-hook 'csv-align-mode)
+
+(setq c-default-style "stroustrup")
