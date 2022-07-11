@@ -114,3 +114,4 @@
 (add-hook 'csv-mode-hook 'csv-align-mode)
 
 (setq c-default-style "stroustrup")
+(setq dired-listing-switches "-alh")
