@@ -52,19 +52,19 @@
 ;(add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 
 ;;vim-tyyliset liikunnat alt-näppäimellä das-fi-näppäimistönasettelulle
-(global-set-key (kbd "M-g") 'backward-char)
-(global-set-key (kbd "M-o") 'forward-char)
-(global-set-key (kbd "M-a") 'next-line)
-(global-set-key (kbd "M-i") 'previous-line)
+(define-key key-translation-map (kbd "M-g") (kbd "<left>"))
+(define-key key-translation-map (kbd "M-o") (kbd "<right>"))
+(define-key key-translation-map (kbd "M-a") (kbd "<down>"))
+(define-key key-translation-map (kbd "M-i") (kbd "<up>"))
 (global-set-key (kbd "C-x a") 'scroll-up-line)
 (global-set-key (kbd "C-x i") 'scroll-down-line)
 
 ;;vim-tyyliset liikunnat venäläiselle oletusnäppäimistönasettelulle
 ;;Alt-näppäin luetaan venäläisestä, mutta kontrol järjestelmän oletusasettelusta
-(global-set-key (kbd "M-р") 'backward-char)
-(global-set-key (kbd "M-д") 'forward-char)
-(global-set-key (kbd "M-о") 'next-line)
-(global-set-key (kbd "M-л") 'previous-line)
+(define-key key-translation-map (kbd "M-р") (kbd "<left>"))
+(define-key key-translation-map (kbd "M-д") (kbd "<right>"))
+(define-key key-translation-map (kbd "M-о") (kbd "<down>"))
+(define-key key-translation-map (kbd "M-л") (kbd "<up>"))
 (global-set-key (kbd "C-x о") 'scroll-up-line)
 (global-set-key (kbd "C-x л") 'scroll-down-line)
 (global-set-key (kbd "C-x ъ") 'repeat)
