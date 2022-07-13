@@ -115,3 +115,6 @@
 
 (setq c-default-style "stroustrup")
 (setq dired-listing-switches "-alh")
+
+(global-set-key (kbd "M-.") 'next-buffer)
+(global-set-key (kbd "M-,") 'previous-buffer)
