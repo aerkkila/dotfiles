@@ -56,8 +56,8 @@
 (define-key key-translation-map (kbd "M-o") (kbd "<right>"))
 (define-key key-translation-map (kbd "M-a") (kbd "<down>"))
 (define-key key-translation-map (kbd "M-i") (kbd "<up>"))
-(global-set-key (kbd "C-x a") 'scroll-up-line)
-(global-set-key (kbd "C-x i") 'scroll-down-line)
+(global-set-key (kbd "M-A") 'scroll-up-line)
+(global-set-key (kbd "M-I") 'scroll-down-line)
 
 ;;vim-tyyliset liikunnat venäläiselle oletusnäppäimistönasettelulle
 ;;Alt-näppäin luetaan venäläisestä, mutta kontrol järjestelmän oletusasettelusta
@@ -65,8 +65,8 @@
 (define-key key-translation-map (kbd "M-д") (kbd "<right>"))
 (define-key key-translation-map (kbd "M-о") (kbd "<down>"))
 (define-key key-translation-map (kbd "M-л") (kbd "<up>"))
-(global-set-key (kbd "C-x о") 'scroll-up-line)
-(global-set-key (kbd "C-x л") 'scroll-down-line)
+(global-set-key (kbd "M-О") 'scroll-up-line)
+(global-set-key (kbd "M-Л") 'scroll-down-line)
 (global-set-key (kbd "C-x ъ") 'repeat)
 
 (global-set-key (kbd "M-e") 'dabbrev-completion)
