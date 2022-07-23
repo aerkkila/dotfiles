@@ -1,0 +1,3 @@
+#!/bin/sh
+./.tilapalkki_dwl.sh &
+exec dwl -s somebar

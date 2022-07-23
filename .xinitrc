@@ -13,6 +13,6 @@ exec blueman-applet &
 exec xcompmgr & #ikkunoitten läpinäkyvyys
 [ $TAUSTA ] || export TAUSTA='-solid #000000' #oletustausta mustaksi, xcompmgr muuttaa sen harmaaksi
 exec hsetroot $TAUSTA &
-./.tilapalkki1.sh &
+./.tilapalkki_dwm.sh &
 numlockx &
 exec dwm 2> ~/.dwm.log
