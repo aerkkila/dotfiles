@@ -1,3 +1,4 @@
 #!/bin/sh
-./.tilapalkki_dwl.sh &
-exec dwl -s somebar
+rm $XDG_RUNTIME_DIR/somebar-*
+(sleep 1 ; exec ~/.tilapalkki_dwl.sh) &
+dwl -s somebar
