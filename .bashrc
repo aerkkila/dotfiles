@@ -15,7 +15,7 @@ shopt -s globstar # "**" täsmää kaikkiin tiedostoihin ja hakemistoihin alihak
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-PS1='\[\033[33m\]\#\[\033[1;34m\]\w\[\033[0m\]\$ '
+PS1='\[\033[33m\]\#\[\033[1;94m\]\w\[\033[0m\]\$ '
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

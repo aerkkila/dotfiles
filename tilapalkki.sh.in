@@ -1,0 +1,71 @@
+#!/bin/sh
+Kaiutin_amixer() {
+    tulos=`amixer get Master |tail -1`
+    voimakkuus1=`echo $tulos |sed 's/.*\[\([0-9]*%\)\].*/\1/'`
+    paallako1=`echo $tulos |sed 's/.*\[\([a-z]*\)\].*/\1/'`
+    if [ "$paallako1" = 'on' ]; then merkki1='🔊'; else merkki1='🔇'; fi
+    kaiutin="${merkki1} ${voimakkuus1}"
+}
+Kaiutin_pactl() {
+    voimakkuus1=`pactl get-sink-volume @DEFAULT_SINK@ |grep -o '[0-9]*%' |head -1`
+    paallako1=`env LANG=en_US.UTF8 pactl get-sink-mute @DEFAULT_SINK@`
+    if [ "$paallako1" = 'Mute: no' ]; then merkki1='🔊'; else merkki1='🔇'; fi
+    kaiutin="${merkki1} ${voimakkuus1}"
+}
+Mikrofoni_amixer() {
+    tulos=`amixer get Capture |tail -1`
+    voimakkuus2=`echo $tulos |sed 's/.*\[\([0-9]*%\)\].*/\1/'`
+    paallako2=`echo $tulos |sed 's/.*\[\([a-z]*\)\].*/\1/'`
+    if [ "$paallako2" = 'on' ]; then merkki2='🎤✔️'; else merkki2='🎤❌'; fi
+    mikrofoni="${merkki2} ${voimakkuus2}"
+}
+Mikrofoni_pactl() {
+    voimakkuus1=`pactl get-source-volume @DEFAULT_SOURCE@ |grep -o '[0-9]*%' |head -1`
+    paallako1=`env LANG=en_US.UTF8 pactl get-source-mute @DEFAULT_SOURCE@`
+    if [ "$paallako2" = 'Mute: no' ]; then merkki2='🎤✔️'; else merkki2='🎤❌'; fi
+    kaiutin="${merkki2} ${voimakkuus2}"
+}
+Akku() {
+    acpi=`acpi -b`
+    for i in `seq $(acpi -b |wc -l)`; do
+	teksti=`acpi -b |head -$i |tail -1`
+	if ! `echo $teksti |grep -q unavailable`; then
+	    if `echo $teksti |grep -q Discharging`; then merkki='🔋'; else merkki='🔌'; fi
+	    akku="$merkki `echo $teksti |grep -o [0-9]*%`"
+	    return
+	fi
+    done
+}
+
+Kaiutin_CONFIGURE_AMIXER_VAI_PACTL_KAIUTIN
+Mikrofoni_CONFIGURE_AMIXER_VAI_PACTL_MIKROFONI
+Akku
+kumpi='CONFIGURE_dwm_vai_dwl'
+
+if [ $kumpi = 'dwm' ]; then
+    while true; do
+	while true; do
+            xsetroot -name "${akku} ${kaiutin} ${mikrofoni} viikko $( date +"%W; %d.%m. %H.%M.%S; %s" )"
+            sleep 0.15s
+	done &
+	silmukka=$!
+	sleep 6.0s
+	Kaiutin_CONFIGURE_AMIXER_VAI_PACTL_KAIUTIN
+	Mikrofoni_CONFIGURE_AMIXER_VAI_PACTL_MIKROFONI
+	Akku
+	kill ${silmukka}
+    done
+else
+    while true; do
+	while true; do
+            echo "status ${akku} ${kaiutin} ${mikrofoni} viikko $( date +"%W; %d.%m. %H.%M.%S; %s" )" > $XDG_RUNTIME_DIR/somebar-0
+            sleep 0.15s
+	done &
+	silmukka=$!
+	sleep 6.0s
+	Kaiutin_CONFIGURE_AMIXER_VAI_PACTL_KAIUTIN
+	Mikrofoni_CONFIGURE_AMIXER_VAI_PACTL_MIKROFONI
+	Akku
+	kill ${silmukka}
+    done
+fi
