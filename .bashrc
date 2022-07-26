@@ -32,6 +32,7 @@ alias gdb='gdb -q'
 alias sudo='sudo -E'
 alias rm='rm -I'
 alias emasc='echo "Korjataan emasc -> emacs" ; emacs'
+alias netti='sudo systemctl restart NetworkManager.service'
 
 kiinnita() {
     sudo mkdir -p /media/${USER}/$1
