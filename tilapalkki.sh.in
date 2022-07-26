@@ -1,6 +1,6 @@
 #!/bin/sh
 Kaiutin_amixer() {
-    tulos=`amixer get Master |tail -1`
+    tulos=`amixer CONFIGURE_AMIXER_DEVICE get Master |tail -1`
     voimakkuus1=`echo $tulos |sed 's/.*\[\([0-9]*%\)\].*/\1/'`
     paallako1=`echo $tulos |sed 's/.*\[\([a-z]*\)\].*/\1/'`
     if [ "$paallako1" = 'on' ]; then merkki1='🔊'; else merkki1='🔇'; fi
@@ -13,7 +13,7 @@ Kaiutin_pactl() {
     kaiutin="${merkki1} ${voimakkuus1}"
 }
 Mikrofoni_amixer() {
-    tulos=`amixer get Capture |tail -1`
+    tulos=`amixer CONFIGURE_AMIXER_DEVICE get Capture |tail -1`
     voimakkuus2=`echo $tulos |sed 's/.*\[\([0-9]*%\)\].*/\1/'`
     paallako2=`echo $tulos |sed 's/.*\[\([a-z]*\)\].*/\1/'`
     if [ "$paallako2" = 'on' ]; then merkki2='🎤✔️'; else merkki2='🎤❌'; fi
