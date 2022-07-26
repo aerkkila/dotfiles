@@ -7,7 +7,7 @@ esac
 HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
 shopt -s histappend # append to the history file, don't overwrite it
 HISTSIZE=2000
-HISTFILESIZE=30000
+HISTFILESIZE=300000
 
 shopt -s checkwinsize # päivitä LINES ja COLUMNS -arvot aina komennon jälkeen
 shopt -s globstar # "**" täsmää kaikkiin tiedostoihin ja hakemistoihin alihakemistoineen
@@ -33,6 +33,7 @@ alias sudo='sudo -E'
 alias rm='rm -I'
 alias emasc='echo "Korjataan emasc -> emacs" ; emacs'
 alias netti='sudo systemctl restart NetworkManager.service'
+alias diff='diff --color'
 
 kiinnita() {
     sudo mkdir -p /media/${USER}/$1
